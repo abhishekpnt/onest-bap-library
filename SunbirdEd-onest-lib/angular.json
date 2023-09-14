@@ -62,12 +62,29 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/sb-onest-demo/src/favicon.ico",
-              "projects/sb-onest-demo/src/assets"
+              "projects/sb-onest-demo/src/assets",
+              {
+                "glob": "**/*.*",
+                "input": "./node_modules/@project-sunbird/sunbird-video-player-web-component/assets",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*.*",
+                "input": "./node_modules/@project-sunbird/sunbird-pdf-player-web-component/assets",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "projects/sb-onest-demo/src/styles.scss"
+              "projects/sb-onest-demo/src/styles.scss",
+              "node_modules/@project-sunbird/sunbird-video-player-web-component/styles.css",
+              "node_modules/@project-sunbird/sunbird-pdf-player-web-component/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/reflect-metadata/Reflect.js",
+              "node_modules/@project-sunbird/sunbird-video-player-web-component/sunbird-video-player.js",
+              "node_modules/@project-sunbird/sunbird-pdf-player-web-component/sunbird-pdf-player.js"
+            ]
           },
           "configurations": {
             "production": {

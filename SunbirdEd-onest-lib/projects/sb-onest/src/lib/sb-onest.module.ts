@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PlayerComponent } from './componnets/player/player.component';
 import { PageLoaderComponent } from './componnets/page-loader/page-loader.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PageLoaderComponent } from './componnets/page-loader/page-loader.compon
   exports: [
     SbOnestComponent,
 
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SbOnestModule { }

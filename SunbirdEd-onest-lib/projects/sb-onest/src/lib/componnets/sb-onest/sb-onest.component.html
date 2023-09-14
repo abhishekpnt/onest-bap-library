@@ -10,7 +10,7 @@
 </mat-toolbar>
 <mat-card *ngIf ="isContentInit && !loading"class="mainDiv">
     <div class="cardContainer">
-        <!-- <mat-card class="card one" *ngFor="let cardList of serachContentList"> -->
+        <!-- <mat-card class="card one" *ngFor="let cardList of searchContentList"> -->
 
             <!-- <mat-card-title-group>
                 <mat-card-title>{{cardList?.title}}</mat-card-title>
@@ -25,7 +25,7 @@
               </mat-card-actions> -->
 
 
-              <div class="course-card"  (click)="openPlayerPage(cardList)" *ngFor="let cardList of serachContentList">
+              <div class="course-card"  (click)="openPlayerPage(cardList)" *ngFor="let cardList of searchContentList">
                 <img  src={{cardList?.img}} alt="Course Image">
                 <div class="course-details">
                   <h3>{{cardList?.title}}</h3>
@@ -63,5 +63,5 @@
     <button matSuffix matTooltip="Back" class="back-btn" (click)="exitPlayerPage()"><mat-icon>arrow_back</mat-icon></button>
     <br>
     <br>
-    <lib-player [serachContentList]="selCardData"></lib-player>
+    <lib-player [searchContentList]="selCardData"></lib-player>
 </mat-card>

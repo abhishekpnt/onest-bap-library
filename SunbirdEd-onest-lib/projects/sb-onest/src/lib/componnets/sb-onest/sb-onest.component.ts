@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SearchService } from '../../service/search/search.service';
+import * as _ from 'lodash';
 @Component({
   selector: 'lib-sb-onest',
   templateUrl: './sb-onest.component.html',
@@ -19,7 +20,7 @@ export class SbOnestComponent implements OnInit {
   searchMessage: any;
   searchContext: any;
   // serachList;
-  serachContentList: { title: string, subTitle: string, img: string, description: string }[] = []
+  searchContentList: any[] = []
   constructor(private http: HttpClient, private searchService: SearchService) {
 
   }
@@ -27,371 +28,6 @@ export class SbOnestComponent implements OnInit {
   ngOnInit(): void {
     this.searchMessage = {};
     this.searchContext = {};
-    // this.serachContentList = [
-    //   {
-    //     title: 'Math1',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math2',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!!"
-    //   },
-    //   {
-    //     title: 'Math3',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math1',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math2',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   }
-    //   ,
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   }
-    //   ,
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   }
-    //   ,
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   },
-    //   {
-    //     title: 'Math',
-    //     subTitle: 'Algerbra',
-    //     img: "https://storage.googleapis.com/swayam-node2-production.appspot.com/assets/img/nce22_sc29/accountancy01-01%20(4).jpg",
-    //     description: "Make a difference in your career and India’s digital growth!"
-    //   }
-    // ]
   }
   searchBasedQuery() {
     console.log('searchBasedQuery', this.searchQuery)
@@ -410,23 +46,27 @@ export class SbOnestComponent implements OnInit {
 
   }
   onBAPSearchCall() {
-    this.serachContentList = [];
+    this.searchContentList = [];
     this.loading = true;
     this.http.get('http://localhost:3004/bap/search?keyword=' + this.searchQuery).subscribe((res: any) => {
       this.searchContext = res.data.context;
       this.searchMessage = res.data.message;
-      let itemsList = res.data.message.catalog.providers[0].items;
+      let itemsList = res.data.responses[0].message.catalog.providers[0].items;
       console.log('itemsList', itemsList);
       if (itemsList) {
         itemsList.map((contentRes: any) => {
+          let mimeType = _.find(contentRes?.tags[0]?.list, (o: any)  => { return o.descriptor.name == "MimeType"; })['value']
           let content = {
+            identifier: contentRes?.descriptor?.id,
             title: contentRes?.descriptor?.name,
             subTitle: contentRes?.category_id,
             img: contentRes?.descriptor?.images[0]?.url,
-            description: contentRes.price.currency + ' : ' + contentRes.price.value,
-            itemId: contentRes?.id
+            price: contentRes.price.currency + ' : ' + contentRes.price.value,
+            itemId: contentRes?.id,
+            artifactUrl: contentRes?.descriptor?.media,
+            mimeType
           }
-          this.serachContentList.push(content);
+          this.searchContentList.push(content);
         })
         this.loading = false;
       }
@@ -445,7 +85,7 @@ export class SbOnestComponent implements OnInit {
       itemId: cardData.itemId,
       fulfillmentId: this.searchContext.bpp_uri
     }
-    this.serachContentList = [];
+    this.searchContentList = [];
     this.loading = true;
     this.http.post('http://localhost:3004/bap/init', resBody).subscribe((res: any) => {
       console.log('resData', res.data.responses[0].message.catalog.providers[0].items);
@@ -465,7 +105,7 @@ export class SbOnestComponent implements OnInit {
   }
 
   openPlayerPage(cardList: any) {
-    this.onBAPInitCall(cardList);
+    // this.onBAPInitCall(cardList);
     this.selCardData = cardList;
     console.log(cardList, 'test');
     this.isPlayerInit = true;
