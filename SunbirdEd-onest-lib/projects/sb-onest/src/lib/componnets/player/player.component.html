@@ -1,0 +1,41 @@
+<!-- <div class="course-card">
+    <img  src="https://s3-ap-south-1.amazonaws.com/onest-static-web-bucket/onest-website-media/2023/09/blog-image-1.png" alt="Course Image">
+    <div class="course-details">
+      <h3>Course Title</h3>
+      <p>Course Description goes here. This is a sample description for the course. Description goes here. This is a sample description for the course.</p>
+      <div class="author"><b>Subject: </b> Math</div>
+      <div class="author"><b>Grade: </b> Class 5,Class 6</div>
+      <div class="author"><b>Publisher: </b> NCERT</div>
+      <div class="author"><b>Author Name: </b>Prince</div>
+      <div class="playDiv">
+                  <button class="playbtn" mat-button  matTooltip="Play Content"><mat-icon>play_circle_filled</mat-icon></button>
+      </div>
+                </div>
+  </div> -->
+  <!-- <div class="course-card">
+    <img src="https://s3-ap-south-1.amazonaws.com/onest-static-web-bucket/onest-website-media/2023/09/blog-image-1.png" alt="Course Image">
+    <div class="play-button">
+      <mat-icon>play_circle_outline</mat-icon>
+    </div>
+    <div class="course-details">
+      <h3>Course Title</h3>
+      <p>Course Description goes here. This is a sample description for the course.</p>
+      <div class="author">Author Name</div>
+    </div>
+  </div>
+   -->
+
+   <div class="course-card">
+    <img  src={{serachContentList?.img}} alt="Course Image">
+    <div class="course-details">
+      <h3>{{serachContentList?.title}}</h3>
+      <p>{{serachContentList?.subTitle}}</p>
+      <div class="author"><b>Price: </b>  {{serachContentList?.description}}</div>
+      <div class="author"><b>Grade: </b>Class 5</div>
+      <div class="author"><b>Publisher: </b> NCERT</div>
+      <div class="author"><b>Author Name: </b>Prince</div>
+      <div class="playDiv">
+      <button class="playbtn" mat-button  matTooltip="Play Content"><mat-icon>play_circle_filled</mat-icon></button>
+    </div>
+    </div>
+  </div>
