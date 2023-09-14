@@ -48,9 +48,9 @@ export class PlayerComponent implements OnInit {
     samplePlayerConfig.metadata = { 
         mimeType: this.searchContentList.mimeType,
         artifactUrl: this.searchContentList.artifactUrl,
-        identifier:
-        name:
-        streamingUrl:
+        identifier: this.searchContentList.identifier,
+        name: this.searchContentList.title,
+        streamingUrl:this.searchContentList.artifactUrl,
         }
     this.videoPlayer.setAttribute('player-config', );
 
