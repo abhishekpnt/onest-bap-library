@@ -3,11 +3,11 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SearchService } from '../../service/search/search.service';
 import * as _ from 'lodash';
 @Component({
-  selector: 'lib-ey-onest',
-  templateUrl: './ey-onest.component.html',
-  styleUrls: ['./ey-onest.component.css']
+  selector: 'lib-ny-onest',
+  templateUrl: './ny-onest.component.html',
+  styleUrls: ['./ny-onest.component.css']
 })
-export class SbOnestComponent implements OnInit {
+export class EyOnestComponent implements OnInit {
   @ViewChild('searchbar') searchbar!: ElementRef
   searchText = '';
   searchQuery = '';

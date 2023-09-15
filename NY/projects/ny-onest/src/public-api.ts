@@ -1,8 +1,8 @@
 /*
- * Public API Surface of ey-onest
+ * Public API Surface of ny-onest
  */
 
-// export * from './lib/ey-onest.service';
-// export * from './lib/ey-onest.component';
-// export * from './lib/ey-onest.module';
+// export * from './lib/ny-onest.service';
+// export * from './lib/ny-onest.component';
+// export * from './lib/ny-onest.module';
 export * from './lib/index';

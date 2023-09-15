@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-lib": "ng build ey-onest --watch=true"
+    "build-lib": "ng build ny-onest --watch=true"
   },
   "private": true,
   "dependencies": {

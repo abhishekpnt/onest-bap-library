@@ -3,7 +3,7 @@ Sunbird ED BAP library that can integrate into any front-end applications
 
 # Onest-bap-library Setup
 
-This guide will tell you how to run ey-onest module. Follow the instructions below to get started.
+This guide will tell you how to run ny-onest module. Follow the instructions below to get started.
 
 ## Prerequisites
 Before cloning and running the project, make sure you have the following software installed on your machine:
@@ -46,17 +46,17 @@ yarn install
 
 path : onest-bap-library/SunbirdEd-onest-lib
 
-ng build ey-onest
+ng build ny-onest
 ```
 2. Link library to your project
 ```console
-npm link ey-onest
+npm link ny-onest
 ```
 
 - To run the  project, use the command:
 - 
 ```
-path : onest-bap-library/SunbirdEd-onest-lib/projects/ey-onest-demo/src/app
+path : onest-bap-library/SunbirdEd-onest-lib/projects/ny-onest-demo/src/app
 ng serve
 ```
 

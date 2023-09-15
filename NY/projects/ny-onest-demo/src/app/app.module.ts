@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SbOnestModule } from 'projects/ey-onest/src/lib';
+import { NyOnestModule } from 'projects/ny-onest/src/lib';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { SbOnestModule } from 'projects/ey-onest/src/lib';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SbOnestModule
+    NyOnestModule
   ],
   providers: [],
   bootstrap: [AppComponent]

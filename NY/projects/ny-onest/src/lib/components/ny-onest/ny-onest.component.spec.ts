@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SbOnestComponent } from './ey-onest.component';
+import { SbOnestComponent } from './ny-onest.component';
 
 describe('SbOnestComponent', () => {
   let component: SbOnestComponent;

@@ -18,9 +18,9 @@
     "strictPropertyInitialization": true,
     "importHelpers": true,
     "paths": {
-      "ey-onest": [
-        "dist/ey-onest/ey-onest",
-        "dist/ey-onest"
+      "ny-onest": [
+        "dist/ny-onest/ny-onest",
+        "dist/ny-onest"
       ]
     },
     "target": "es2017",

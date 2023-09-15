@@ -1,2 +1,2 @@
 export * from  './components/index';
-export * from  './ey-onest.module';
+export * from  './ny-onest.module';

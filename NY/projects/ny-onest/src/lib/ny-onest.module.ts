@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SbOnestComponent } from './components/ey-onest/ey-onest.component';
+import { EyOnestComponent } from './components/ny-onest/ny-onest.component';
 import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,7 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    SbOnestComponent,
+    EyOnestComponent,
     PlayerComponent,
     PageLoaderComponent,
     FormComponent,
@@ -40,9 +40,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
   ],
   exports: [
-    SbOnestComponent,
+    EyOnestComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SbOnestModule { }
+export class NyOnestModule { }
