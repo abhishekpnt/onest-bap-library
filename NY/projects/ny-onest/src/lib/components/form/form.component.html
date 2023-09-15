@@ -1,0 +1,24 @@
+<form class="form-container container d-flex flex-column justify-content-center p-4">
+  <h1 class="text-center">Submit the details to apply for scholarship</h1>
+  <div class="rendered-form">
+    <div class="formbuilder-text form-group field-name">
+      <label for="name" class="formbuilder-text-label pr-10">Name:</label>
+      <input type="text" class="form-control" [(ngModel)]="childName" name="name" access="false" id="name">
+    </div>
+    <div class="formbuilder-text form-group field-class">
+      <label for="class" class="formbuilder-text-label pr-10">Class:</label>
+      <input type="text" class="form-control" [(ngModel)]="childClass" name="class" access="false" id="class">
+    </div>
+    <div class="formbuilder-file form-group field-marks ">
+      <label for="marks" class="formbuilder-file-label">Upload Marks Card</label>
+      <input type="file" class="form-control" name="marks" access="false" multiple="false" id="marks">
+    </div>
+    <div class="formbuilder-file form-group field-photo">
+      <label for="photo" class="formbuilder-file-label">Upload Photograph</label>
+      <input type="file" class="form-control" name="photo" access="false" multiple="false" id="photo">
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </div>
+</form>

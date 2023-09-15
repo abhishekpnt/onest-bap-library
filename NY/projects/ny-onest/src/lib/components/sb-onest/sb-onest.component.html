@@ -1,0 +1,35 @@
+<!-- <mat-toolbar color="primary" class="main-tool-bar" *ngIf="!isPlayerInit">
+  <span (click)="searchBasedQuery()">ONEST-ED</span>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <input type="search" matInput (keyup.enter)="searchBasedQuery()" [(ngModel)]="searchQuery"
+      placeholder="Search here">
+    <button matSuffix class="send-btn" mat-button (click)="searchBasedQuery()"><mat-icon>search</mat-icon></button>
+  </mat-form-field>
+</mat-toolbar> -->
+<div class="logo">
+  <img src="assets/NY.png" alt="">
+  <img  src="assets/1.png" alt="">
+</div>
+
+
+<div *ngIf="isContentInit && !loading" class="mainDiv">
+  <div class="cardContainer">
+    <div class="course-card" (click)="openForm(cardList)" *ngFor="let cardList of searchContentList">
+      <img src={{cardList?.img}} alt="Course Image">
+      <div class="course-details">
+        <h3>{{cardList?.title}}</h3>
+        <p>{{cardList?.subTitle}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div *ngIf="loading">
+  <page-loader [loading]="loading"></page-loader>
+</div> -->
+<mat-card *ngIf="formInit">
+  <button matSuffix matTooltip="Back" class="back-btn btn-primary" mat-raised-button color="primary"
+    (click)="exitFormPage()"><mat-icon>arrow_back</mat-icon></button>
+  <br>
+  <br>
+  <lib-form [searchContentList]="selCardData"></lib-form>
+</mat-card>

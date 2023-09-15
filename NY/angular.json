@@ -1,0 +1,162 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "491c087c-980d-4824-87db-dfd52e119636"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ny-onest": {
+      "projectType": "library",
+      "root": "projects/ny-onest",
+      "sourceRoot": "projects/ny-onest/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ny-onest/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ny-onest/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ny-onest/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ny-onest/src/test.ts",
+            "tsConfig": "projects/ny-onest/tsconfig.spec.json",
+            "karmaConfig": "projects/ny-onest/karma.conf.js"
+          }
+        }
+      }
+    },
+    "ny-onest-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/ny-onest-demo",
+      "sourceRoot": "projects/ny-onest-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ny-onest-demo",
+            "index": "projects/ny-onest-demo/src/index.html",
+            "main": "projects/ny-onest-demo/src/main.ts",
+            "polyfills": "projects/ny-onest-demo/src/polyfills.ts",
+            "tsConfig": "projects/ny-onest-demo/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ny-onest-demo/src/favicon.ico",
+              "projects/ny-onest-demo/src/assets",
+              {
+                "glob": "**/*.*",
+                "input": "./node_modules/@project-sunbird/sunbird-video-player-web-component/assets",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*.*",
+                "input": "./node_modules/@project-sunbird/sunbird-pdf-player-web-component/assets",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "projects/ny-onest-demo/src/styles.scss",
+              "node_modules/@project-sunbird/sunbird-video-player-web-component/styles.css",
+              "node_modules/@project-sunbird/sunbird-pdf-player-web-component/styles.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/reflect-metadata/Reflect.js",
+              "node_modules/@project-sunbird/sunbird-video-player-web-component/sunbird-video-player.js",
+              "node_modules/@project-sunbird/sunbird-pdf-player-web-component/sunbird-pdf-player.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/ny-onest-demo/src/environments/environment.ts",
+                  "with": "projects/ny-onest-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ny-onest-demo:build:production"
+            },
+            "development": {
+              "browserTarget": "ny-onest-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ny-onest-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ny-onest-demo/src/test.ts",
+            "polyfills": "projects/ny-onest-demo/src/polyfills.ts",
+            "tsConfig": "projects/ny-onest-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/ny-onest-demo/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ny-onest-demo/src/favicon.ico",
+              "projects/ny-onest-demo/src/assets"
+            ],
+            "styles": [
+              "projects/ny-onest-demo/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ny-onest"
+}
