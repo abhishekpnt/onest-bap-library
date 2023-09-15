@@ -7,18 +7,23 @@
   </mat-form-field>
 </mat-toolbar> -->
 <div class="logo">
-  <img src="assets/NY.png" alt="">
-  <img  src="assets/1.png" alt="">
+  <img class="lg" src="assets/NY.png" alt="">
+  <img class="lg" src="assets/1.png" alt="">
 </div>
 
 
-<div *ngIf="isContentInit && !loading" class="mainDiv">
+<div *ngIf="searchContentList && !loading && isContentInit" class="mainDiv">
+  <div class="d-flex justify-content-center align-self-center pt-5 pb-5">
+    <h2>Apply for children education schemes</h2>
+  </div>
   <div class="cardContainer">
     <div class="course-card" (click)="openForm(cardList)" *ngFor="let cardList of searchContentList">
-      <img src={{cardList?.img}} alt="Course Image">
+      <img width="140px" height="100px" src={{cardList.descriptor.images[0].url}} alt="Course Image">
       <div class="course-details">
-        <h3>{{cardList?.title}}</h3>
-        <p>{{cardList?.subTitle}}</p>
+        <h3>{{cardList?.descriptor?.name}}</h3>
+        <p>{{cardList?.items[0]?.descriptor?.name}}</p>
+        <h4>{{cardList.items[0].price.value}}</h4>
+
       </div>
     </div>
   </div>
